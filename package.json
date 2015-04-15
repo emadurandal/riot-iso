@@ -1,0 +1,25 @@
+{
+  "name": "riot-test",
+  "version": "1.0.0",
+  "description": "To show a server side rendering bug in RiotJS v2.0.14",
+  "main": "./lib/server",
+  "dependencies": {
+    "fs": "0.0.2",
+    "http": "0.0.0",
+    "riot": "2.0.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./lib/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "riotjs",
+    "server",
+    "side",
+    "rendering",
+    "bug"
+  ],
+  "author": "Andreas Heintze <andreas@heintze.se> (http://heintze.se/)",
+  "license": "ISC"
+}
