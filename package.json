@@ -2,6 +2,9 @@
   "name": "riot-test",
   "version": "1.0.0",
   "description": "To show a server side rendering bug in RiotJS v2.0.14",
+  "repository": {
+    "url": "https://github.com/AndreasHeintze/riot-test.git"
+  },
   "main": "./lib/server",
   "dependencies": {
     "fs": "0.0.2",
@@ -20,6 +23,5 @@
     "rendering",
     "bug"
   ],
-  "author": "Andreas Heintze <andreas@heintze.se> (http://heintze.se/)",
-  "license": "ISC"
+  "author": "Andreas Heintze <andreas@heintze.se> (http://heintze.se/)"
 }
