@@ -11,3 +11,6 @@ npm install
 npm start
 ```
 
+Then go to http://localhost:8080/ and you will see a working demo of RiotJS server side rendering.
+
+Now to see the bug in action go to http://localhost/bug/
