@@ -1,10 +1,4 @@
-<list>
-
-	<ul class="list">
-		<li each={items} onclick={parent.click}>{pos} {title}</li>
-	</ul>
-
-	<script>
+riot.tag('list', '<ul class="list"> <li each="{items}" onclick="{parent.click}">{pos} {title}</li> </ul>', function(opts) {
 		
 		this.items = [
 			{ pos: '1', title: 'First item' },
@@ -12,10 +6,9 @@
 			{ pos: '3', title: 'Third item' }
 		];
 
-		click(e) {
+		this.click = function(e) {
 			alert(e.item.title + ' was clicked!');
-		}
+		}.bind(this);
 
-	</script>
-
-</list>
+	
+});
