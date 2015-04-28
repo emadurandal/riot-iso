@@ -1,15 +1,15 @@
 {
-  "name": "riot-test",
+  "name": "riot-iso",
   "version": "1.0.0",
-  "description": "To show a server side rendering bug in RiotJS v2.0.14",
+  "description": "RiotJS - Isomorphic Test",
   "repository": {
-    "url": "https://github.com/AndreasHeintze/riot-test.git"
+    "url": "https://github.com/AndreasHeintze/riot-iso.git"
   },
   "main": "./lib/server",
   "dependencies": {
     "fs": "0.0.2",
     "http": "0.0.0",
-    "riot": "2.0.14"
+    "riot": ">=2.0.15"
   },
   "devDependencies": {},
   "scripts": {
@@ -18,10 +18,7 @@
   },
   "keywords": [
     "riotjs",
-    "server",
-    "side",
-    "rendering",
-    "bug"
+    "isomorphic"
   ],
   "author": "Andreas Heintze <andreas@heintze.se> (http://heintze.se/)"
 }
