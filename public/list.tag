@@ -1,5 +1,7 @@
 <list>
 
+	<yield/>
+	
 	<ul class="list">
 		<li each={items} onclick={parent.click}>{pos} {title}</li>
 	</ul>

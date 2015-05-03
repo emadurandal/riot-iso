@@ -13,13 +13,15 @@
   
     <body>
 
-        <list></list>
+        <list><span>Yield test</span></list>
 
 		<!--<script src="https://cdn.jsdelivr.net/g/riot@2.0.15(riot.js+compiler.js)"></script>-->
 		<!--<script src="list.tag" type="riot/tag"></script>-->
-		<script src="https://cdn.jsdelivr.net/riot/2.0.15/riot.js"></script>
+		<!--<script src="https://cdn.jsdelivr.net/riot/2.0.15/riot.js"></script>-->
+		<script src="riot.js"></script>
 		<script src="list.js"></script>
 		<script>
+			{riot.init}
 			riot.mount('list');
 		</script>
 

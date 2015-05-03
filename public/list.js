@@ -1,4 +1,4 @@
-riot.tag('list', '<ul class="list"> <li each="{items}" onclick="{parent.click}">{pos} {title}</li> </ul>', function(opts) {
+riot.tag('list', '<yield></yield> <ul class="list"> <li each="{items}" onclick="{parent.click}">{pos} {title}</li> </ul>', function(opts) {
 		
 		this.items = [
 			{ pos: '1', title: 'First item' },
