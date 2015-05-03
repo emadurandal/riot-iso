@@ -639,6 +639,32 @@ function parseExpressions(root, tag, expressions) {
   })
 
 }
+
+function getInnerHTML(dom, root) {
+  var yieldStart,
+      childCount = 0,
+      innerHTML = ''
+  for (var pos in dom.childNodes) {
+    if (!dom.childNodes.hasOwnProperty(pos) || pos == 'length') continue
+    if (dom.childNodes[pos].nodeName == 'YIELD') {
+      yieldStart = pos
+    } else if (typeof yieldStart != 'undefined') {
+      childCount++
+    }
+  }
+  for (var pos in root.childNodes) {
+    if (!root.childNodes.hasOwnProperty(pos) || pos == 'length') continue
+    if (pos >= yieldStart) {
+      if(pos < root.childNodes.length - childCount) {
+        innerHTML += root.childNodes[pos].outerHTML
+      } else {
+        break;
+      }
+    }
+  }
+  return innerHTML
+}
+
 function Tag(impl, conf, innerHTML) {
 
   var self = riot.observable(this),
@@ -671,6 +697,8 @@ function Tag(impl, conf, innerHTML) {
   each(root.attributes, function(el) {
     attr[el.name] = el.value
   })
+
+  if (!riot.isNode) innerHTML = getInnerHTML(dom, root)
 
   if (dom.innerHTML && !/select/.test(tagName))
     // replace all the yield tags with the tag inner html
@@ -1010,22 +1038,13 @@ function injectStyle(css) {
 
 function mountTo(root, tagName, opts) {
   
-  if (!riot.isNode && typeof riot._server === 'undefined') {
-    riot._server = {tags: {}}
-    riot._server.tags[tagName] = {innerHTML: ''}
-  }
-  //root.innerHTML = root.innerHTML.substring(0, root.innerHTML.indexOf('<ul'));
-  if (!riot.isNode && typeof riot._server !== 'undefined') {
-      root.innerHTML = riot._server.tags[tagName].innerHTML
-  }
-  
   //console.log('root.innerHTML', tagName, root.innerHTML)
 
   var tag = tagImpl[tagName],
       innerHTML = root.innerHTML
 
   // clear the inner html
-  root.innerHTML = ''
+  if (riot.isNode) root.innerHTML = ''
 
   if (tag && root) tag = new Tag(tag, { root: root, opts: opts }, innerHTML)
 
